@@ -1,10 +1,22 @@
-<div class = "bandeau">
-<h1>Wikinimous</h1>
-<%= link_to "New article", new_article_path%>
-</div>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Wikinimous</a>
+    <form class="d-flex">
+      <%= link_to "New article", new_article_path, class: "btn btn-link"%>
+    </form>
+  </div>
+</nav>
 
-<ul>
+<ul class="container list-group text-center mx-150" >
+  <% @articles.each do |article| %>
+    <li class="list-group-item"><%= link_to article.title, article_path(article) %></li>
+  <% end %>
+</ul>
+
+<!-- <ul>
   <% @articles.each do |article| %>
     <li><%= link_to article.title, article_path(article) %></li>
   <% end %>
 </ul>
+
+<%= link_to "New article", new_article_path%> -->
